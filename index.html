@@ -61,7 +61,7 @@
     <button id="sendAudioButton" disabled onClick="sendAudio()">Отправка записей</button>
 </p>
 <p>
-    <button id="saveAudioButton"  disabled onClick="saveAudio()">Сохранение записей</button>
+    <button id="saveAudioButton" disabled onClick="saveAudio()">Сохранение записей</button>
 </p>
 </body>
 <script>(function () {
@@ -77,9 +77,9 @@
             window.WebAudioTrack = WebAudioTrack;
         }
     }
-    var script = document.createElement("script");
-    script.src = "https://webrtchacks.github.io/adapter/adapter-latest.js";
-    document.head.appendChild(script);
+    // var script = document.createElement("script");
+    // script.src = "https://webrtchacks.github.io/adapter/adapter-latest.js";
+    // document.head.appendChild(script);
     var AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!window.currentAudioContext) {
         window.currentAudioContext = new AudioContext();
@@ -717,8 +717,7 @@
             console.log(item.blob);
             saveAs(item.blob, audioChunksNames[i]);
         });
-
-        document.getElementById("saveAudioButton").innerHTML = "Отправлено";
+        document.getElementById("saveAudioButton").innerHTML = "Сохранено";
     }
 
     function sendAudio() {
