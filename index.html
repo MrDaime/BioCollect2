@@ -717,6 +717,8 @@
             console.log(item.blob);
             saveAs(item.blob, audioChunksNames[i]);
         });
+
+        document.getElementById("saveAudioButton").innerHTML = "Отправлено";
     }
 
     function sendAudio() {
