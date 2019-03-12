@@ -693,7 +693,8 @@
             } else {
                 audioTrack.stopRecording();
                 audioTrack.play();
-                audioChunks.push(audioTrack);
+                var blob = new Blob([audioTrack], {type: 'application/octet-stream'});
+                audioChunks.push(blob);
                 audioTrack = new WebAudioTrack();
                 console.log("Recording stopped.");
                 document.getElementById("rec" + num).innerHTML = "Записано.";
