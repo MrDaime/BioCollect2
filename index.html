@@ -61,7 +61,7 @@
     <button id="sendAudioButton" disabled onClick="sendAudio()">Отправка записей</button>
 </p>
 <p>
-    <button id="saveAudioButton"  onClick="saveAudio()">Сохранение записей</button>
+    <button id="saveAudioButton"  disabled onClick="saveAudio()">Сохранение записей</button>
 </p>
 </body>
 <script>(function () {
@@ -711,8 +711,12 @@
     }
 
     function saveAudio() {
-        var blob = new Blob(["omg"], {type: "application:octet-stream"});
-        saveAs(blob, "hello world");
+        document.getElementById("saveAudioButton").disabled = true;
+        document.getElementById("saveAudioButton").innerHTML = "Сохранение";
+        audioChunks.forEach(function (item, i) {
+            console.log(item.blob);
+            saveAs(item.blob, audioChunksNames[i]);
+        });
     }
 
     function sendAudio() {
